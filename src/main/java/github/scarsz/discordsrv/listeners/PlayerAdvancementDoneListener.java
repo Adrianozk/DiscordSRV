@@ -88,9 +88,9 @@ public class PlayerAdvancementDoneListener implements Listener {
 
         // return if message is null as plugins can set this to prevent the advancement being sent in chat
         try {
-            Method message = event.getClass().getMethod("message");
-            if (message.invoke(event) == null) return ;
-        } catch (ReflectiveOperationException e ) {
+            Method messageGetter = event.getClass().getMethod("message");
+            if (messageGetter.invoke(event) == null) return;
+        } catch (ReflectiveOperationException e) {
             return;
         }
 
