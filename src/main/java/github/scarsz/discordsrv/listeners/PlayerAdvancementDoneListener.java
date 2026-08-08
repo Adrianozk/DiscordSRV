@@ -91,7 +91,7 @@ public class PlayerAdvancementDoneListener implements Listener {
             Method messageGetter = event.getClass().getMethod("message");
             if (messageGetter.invoke(event) == null) return;
         } catch (ReflectiveOperationException e) {
-            return;
+            // send advancement in chat as normal upon reflection failure
         }
 
         // respect invisibility plugins
